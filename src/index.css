@@ -1,0 +1,84 @@
+body {
+  font-family: 'Manrope', sans-serif;
+  /* color: var(--primary-text-color); */
+  /* background-color: var(--background-color); */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 80px 10px;
+}
+
+@media screen and (max-width: 374px) {
+  .container {
+    max-width: 374px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    /* padding: 80px 20px; */
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .container {
+    width: 768px;
+    /* padding-left: 32px;
+    padding-right: 32px; */
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+  }
+}
