@@ -1,8 +1,8 @@
-import { AuthProvider } from "../../components/AuthProvider/AuthProvider";
+import { Auth } from "../../components/Auth/Auth";
 
 const SecondPage = () => {
   return (
-    <AuthProvider/>
+    <Auth/>
   );
 };
 
