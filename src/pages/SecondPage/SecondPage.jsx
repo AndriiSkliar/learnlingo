@@ -1,5 +1,4 @@
-import { AuthProvider } from "../../components/Auth/Auth";
-
+import { AuthProvider } from "./Auth";
 
 const SecondPage = () => {
   return (
