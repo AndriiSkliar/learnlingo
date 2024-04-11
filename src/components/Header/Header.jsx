@@ -5,11 +5,14 @@ export const Header = () => {
   return (
     <div>
       <nav>
-        <Link to="/first">
-          First
+        <Link to="/home">
+          home
         </Link>
-        <Link to="/second">
-          Second
+        <Link to="/login">
+          login
+        </Link>
+        <Link to="/register">
+          register
         </Link>
       </nav>
     </div>
