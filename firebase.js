@@ -1,18 +1,26 @@
 import { initializeApp } from 'firebase/app';
 import { GoogleAuthProvider } from 'firebase/auth';
 
-const API_KEY = import.meta.env.VITE_API_KEY;
+const {
+  VITE_API_KEY,
+  VITE_AUTH_DOMAIN,
+  VITE_DATABASE_URL,
+  VITE_PROJECT_ID,
+  VITE_STORAGE_BUCKET,
+  VITE_MEASUREMENT_ID,
+  VITE_APP_ID,
+  VITE_MESSAGING_SENDER_ID,
+} = import.meta.env;
 
 const firebaseConfig = {
-  apiKey: API_KEY,
-  authDomain: 'learnlingo-efd49.firebaseapp.com',
-  databaseURL:
-    'https://learnlingo-efd49-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'learnlingo-efd49',
-  storageBucket: 'learnlingo-efd49.appspot.com',
-  messagingSenderId: '591628495341',
-  appId: '1:591628495341:web:9111de8e04619fe92e1fe4',
-  measurementId: 'G-FZ5ZX4HEG8',
+  apiKey: VITE_API_KEY,
+  authDomain: VITE_AUTH_DOMAIN,
+  databaseURL: VITE_DATABASE_URL,
+  projectId: VITE_PROJECT_ID,
+  storageBucket: VITE_STORAGE_BUCKET,
+  messagingSenderId: VITE_MEASUREMENT_ID,
+  appId: VITE_APP_ID,
+  measurementId: VITE_MESSAGING_SENDER_ID,
 };
 
 export const app = initializeApp(firebaseConfig);
