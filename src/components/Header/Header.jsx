@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import Logo from '../Logo/Logo';
-import { Login } from '../Login';
 
 export const Header = () => {
 
@@ -21,7 +20,6 @@ export const Header = () => {
       <div>
         <button type='button'>
           Log in
-          <Login/>
         </button>
         <button type='button'>
           Registration

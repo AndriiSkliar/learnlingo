@@ -1,10 +1,19 @@
-import { Navigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
-import { removeUser } from '../redux/auth/auth.reducer';
-import { useAuth } from '../hooks/use-auth';
+// import { Navigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux'
+// import { removeUser } from '../redux/auth/auth.reducer';
+// import { useAuth } from '../hooks/use-auth';
+
+import { Login } from "../components/Login";
+import { SignUp } from "../components/SignUp";
 
 const HomePage = () => {
-  return <p>Welcome!</p>
+  return (
+    <>
+      <p>Welcome!</p>
+      <Login/>
+      <SignUp/>
+    </>
+  )
   // const dispatch = useDispatch();
 
   //   const {isAuth, name="user"} = useAuth();

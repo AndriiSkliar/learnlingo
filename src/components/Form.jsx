@@ -1,12 +1,37 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useState } from 'react';
 import * as Yup from 'yup';
 
-export const UniversalForm = ({ title, text, inputs, onSubmit }) => {
-  const validationSchema = Yup.object().shape({
-      // name: Yup.string().required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
+const schema = Yup.object().shape({
+    name: Yup.string()
+    .required('Name is required')
+    .matches(/[A-Za-z]+/, 'Name must contain at least one letter')
+    .matches(/^[A-Za-z\s]+$/, 'Name must contain only letters and spaces'),
+    email: Yup.string()
+    .matches(
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+      'Emails: digits, letters, . - _ only, e.g., example@mail.com.'
+    )
+    .email('Invalid email format, example@mail.com')
+    .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 characters long')
+      .required('Password is required. Example:Password123')
+      .matches(/[a-zA-Z]/, 'Password must contain at least one letter')
+      .matches(/[0-9]/, 'Password must contain at least one number'),
   });
+
+export const UniversalForm = props => {
+  const { title, text, inputs, handleUserSubmit, button  } = props;
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleSubmit = values => {
+    handleUserSubmit(values); 
+  };
 
   return (
     <div>
@@ -14,22 +39,28 @@ export const UniversalForm = ({ title, text, inputs, onSubmit }) => {
       <p>{text}</p>
       <Formik
         initialValues={{
+          name: '', 
           email: '',
           password: '',
-        //   name: '', 
         }}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
+        validationSchema={schema}
       >
         {() => (
           <Form>
-            {inputs.map((input) => (
-              <div key={input.name}>
-                <Field type={input.type} id={input.name} name={input.name} />
-                <label htmlFor={input.name}>{input.label}</label>
+            {inputs.map(({name, label}) => (
+              <div key={name}>
+                {name === 'password'
+                  ? <div>
+                      <Field type={showPassword ? 'text' : name} id={name} name={name} />
+                      <button type="button" onClick={handleTogglePassword}>eye</button>
+                    </div>
+                  : <Field type={name} id={name} name={name} />}
+                <label htmlFor={name}>{label}</label>
+                <ErrorMessage name={name} component="div" className="error-message" />
               </div>
             ))}
-            <button type="submit">Submit</button>
+            <button type="submit">{button}</button>
           </Form>
         )}
       </Formik>

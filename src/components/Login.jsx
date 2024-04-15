@@ -1,22 +1,36 @@
-import {useDispatch} from 'react-redux';
-import {useHistory} from 'react-router-dom';
+// import {useDispatch} from 'react-redux';
+// import {useHistory} from 'react-router-dom';
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {Form, UniversalForm} from './Form';
-import { setUser } from '../redux/auth/auth.reducer';
+import { UniversalForm } from "./Form";
+
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+// import { setUser } from '../redux/auth/auth.reducer';
 
 export const Login = () => {
     // const dispatch = useDispatch();
     // const {push} = useHistory();
     
     const loginInputs = [
-        { name: 'email', type: 'email', label: 'Email' },
-        { name: 'password', type: 'password', label: 'Password' },
+        { name: 'email', label: 'Email' },
+        { name: 'password', label: 'Password' },
     ];
 
-    const handleLoginSubmit = (values) => {
+    const handleLoginSubmit = values => {
         console.log(values);
     };
+
+    return (
+        <UniversalForm
+            title="Log In"
+            text="Welcome back! Please enter your credentials to access your account and continue your search for an teacher."
+            inputs={loginInputs}
+            handleUserSubmit={handleLoginSubmit}
+            button="Log In"
+        />
+    )
+}
+
+
 
     // const handleLogin = (email, password) => {
     //     const auth = getAuth();
@@ -32,13 +46,3 @@ export const Login = () => {
     //         })
     //         .catch(() => alert('Invalid user!'))
     // }
-
-    return (
-        <UniversalForm
-            title="Login"
-            text="Please enter your credentials"
-            inputs={loginInputs}
-            onSubmit={handleLoginSubmit}
-        />
-    )
-}
