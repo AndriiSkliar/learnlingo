@@ -7,6 +7,7 @@ export function useAuth() {
 
   return {
     isAuth: Boolean(name),
+    name,
     email,
     password,
     id,

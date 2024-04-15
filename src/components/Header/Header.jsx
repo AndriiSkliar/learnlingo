@@ -1,20 +1,32 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Logo from '../Logo/Logo';
+import { Login } from '../Login';
 
 export const Header = () => {
 
   return (
     <div>
+      <Logo/>
       <nav>
-        <Link to="/home">
-          home
-        </Link>
-        <Link to="/login">
-          login
-        </Link>
-        <Link to="/register">
-          register
-        </Link>
+        <NavLink to="/home">
+          Home
+        </NavLink>
+        <NavLink to="/teachers">
+          Teachers
+        </NavLink>
+        <NavLink to="/favorites">
+          Favorites
+        </NavLink>
       </nav>
+      <div>
+        <button type='button'>
+          Log in
+          <Login/>
+        </button>
+        <button type='button'>
+          Registration
+        </button>
+      </div>
     </div>
   );
 };

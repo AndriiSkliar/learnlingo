@@ -4,21 +4,22 @@ import { removeUser } from '../redux/auth/auth.reducer';
 import { useAuth } from '../hooks/use-auth';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
+  return <p>Welcome!</p>
+  // const dispatch = useDispatch();
 
-    const {isAuth, email} = useAuth();
+  //   const {isAuth, name="user"} = useAuth();
 
-    return isAuth ? (
-        <div>
-            <h1>Welcome</h1>
+  //   return isAuth ? (
+  //       <div>
+  //         <p>Welcome, {name}</p>
 
-            <button
-                onClick={()=> dispatch(removeUser())}
-            >Log out from {email}</button>
-        </div>
-    ) : (
-    <Navigate to="/login"/>
-  );
+  //           <button
+  //               onClick={()=> dispatch(removeUser())}
+  //           >Log out from {email}</button>
+  //       </div>
+  //   ) : (
+  //   <Navigate to="/login"/>
+  // );
 };
 
 export default HomePage;

@@ -1,33 +1,41 @@
-import { useState } from 'react';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
-const Form = ({title, handleClick}) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+export const UniversalForm = ({ title, text, inputs, onSubmit }) => {
+  const validationSchema = Yup.object().shape({
+      // name: Yup.string().required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
+  });
 
-    return (
-        <div>
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="email"
-            />
-            <input
-                type="password"
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
-                placeholder="password"
-            />
-            <button
-                onClick={() => handleClick(email, pass)}
-            >
-                {title}
-            </button>
-        </div>
-    )
-}
-
-export {Form}
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>{text}</p>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        //   name: '', 
+        }}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {() => (
+          <Form>
+            {inputs.map((input) => (
+              <div key={input.name}>
+                <Field type={input.type} id={input.name} name={input.name} />
+                <label htmlFor={input.name}>{input.label}</label>
+              </div>
+            ))}
+            <button type="submit">Submit</button>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
+};
 
 
 // import { Formik, Form, Field } from "formik";

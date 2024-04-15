@@ -8,8 +8,8 @@ const initialState = {
   token: null,
 };
 
-const authSlice = createSlice({
-  name: 'auth',
+const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
     setUser(state, { payload }) {
@@ -27,5 +27,5 @@ const authSlice = createSlice({
   },
 });
 
-export const authReducer = authSlice.reducer;
-export const { setUser, removeUser } = authSlice.actions;
+export const userReducer = userSlice.reducer;
+export const { setUser, removeUser } = userSlice.actions;
