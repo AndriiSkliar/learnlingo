@@ -1,3 +1,14 @@
+/* :root{
+  --panel-bg-color: #dfe4ea;
+  --container-bg-color: #f1f2f6;
+  --text-color: #2f3542;
+}
+:root[theme='dark'] {
+  --panel-bg-color: #2f3542;
+  --container-bg-color: #57606f;
+  --text-color: #ced6e0;
+} */
+
 body {
   font-family: 'Manrope', sans-serif;
   /* color: var(--primary-text-color); */

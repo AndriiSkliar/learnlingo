@@ -1,11 +1,10 @@
-// import {useDispatch} from 'react-redux';
-// import {useHistory} from 'react-router-dom';
-// import { setUser } from '../redux/auth/auth.reducer';
-
+import { useDispatch } from 'react-redux';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { setUser } from '../redux/auth/auth.reducer';
 import { UniversalForm } from "./Form";
 
 export const SignUp = () => {
+    const dispatch = useDispatch();
     const signInInputs = [
         { name: 'name', label: 'Name' },
         { name: 'email', label: 'Email' },
@@ -15,8 +14,14 @@ export const SignUp = () => {
     const handleRegisterSubmit = async ({name, email, password}) => {
         const auth = getAuth();
         try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const newProfile = await updateProfile(userCredential.user, { displayName: name });
+            const { user } = await createUserWithEmailAndPassword(auth, email, password);
+            await updateProfile(user, { displayName: name });
+            dispatch(setUser({
+                    name,
+                    email: user.email,
+                    id: user.uid,
+                    token: user.accessToken,
+                }));
         } catch (error) {
             console.error('Error registering user:', error);
         }
@@ -32,21 +37,3 @@ export const SignUp = () => {
         />
     )
 }
-
-    // const dispatch = useDispatch();
-    // const {push} = useHistory();
-
-    // const handleRegister = (email, password) => {
-    //     const auth = getAuth();
-    //     createUserWithEmailAndPassword(auth, email, password)
-    //         .then(({user}) => {
-    //             console.log(user);
-    //             dispatch(setUser({
-    //                 email: user.email,
-    //                 id: user.uid,
-    //                 token: user.accessToken,
-    //             }));
-    //             push('/');
-    //         })
-    //         .catch(console.error)
-    // }
