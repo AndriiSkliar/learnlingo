@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
-import { loginSchema, registerSchema } from './schema';
+import { loginSchema, registerSchema } from './schemes';
 
 export const UniversalForm = props => {
   const { title, text, inputs, handleUserSubmit, button } = props;
