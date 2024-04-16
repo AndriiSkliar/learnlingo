@@ -17,7 +17,6 @@ export const SignUp = () => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const newProfile = await updateProfile(userCredential.user, { displayName: name });
-            console.log(newProfile);
         } catch (error) {
             console.error('Error registering user:', error);
         }
