@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
-import { loginSchema, registerSchema } from './signInSchemes';
+import { lbalbalba, alwdlaw } from './signInSchemes';
 
 export const UniversalForm = props => {
   const { title, text, inputs, handleUserSubmit, button } = props;
@@ -25,7 +25,7 @@ export const UniversalForm = props => {
           password: '',
         }}
         onSubmit={handleSubmit}
-        validationSchema={inputs.length === 3 ? registerSchema : loginSchema}
+        validationSchema={inputs.length === 3 ? alwdlaw : lbalbalba}
       >
         {() => (
           <Form>
