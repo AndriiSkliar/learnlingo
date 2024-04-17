@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getAuth, signOut } from "firebase/auth";
 import { useAuth } from '../../hooks/use-auth';
 import { removeUser } from '../../redux/auth/auth.reducer';
-import { Modal } from '../Modal/Modal';
+import { PopUp } from '../PopUp/PopUp';
 import { SignUp } from "../SignUp";
 import { Login } from "../Login";
 import Logo from '../Logo/Logo';
@@ -54,8 +54,8 @@ export const Header = () => {
             <button type='button' onClick={() => setShowRegisterPopup(true)}>Registration</button>
           </>}
       </div>
-      {showLoginPopup && <Modal setIsShowModal={setShowLoginPopup}><Login/></Modal>}
-      {showRegisterPopup && <Modal setIsShowModal={setShowRegisterPopup}><SignUp/></Modal>}
+      {showLoginPopup && <PopUp setIsShowModal={setShowLoginPopup}><Login/></PopUp>}
+      {showRegisterPopup && <PopUp setIsShowPopUp={setShowRegisterPopup}><SignUp/></PopUp>}
     </div>
   );
 };
