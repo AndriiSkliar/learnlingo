@@ -55,7 +55,7 @@ export const Header = () => {
           </>}
       </div>
       {showLoginPopup && <PopUp setIsShowModal={setShowLoginPopup}><Login/></PopUp>}
-      {showRegisterPopup && <PopUp setIsShowPopUp={setShowRegisterPopup}><SignUp/></PopUp>}
+      {showRegisterPopup && <PopUp setIsShowModal={setShowRegisterPopup}><SignUp/></PopUp>}
     </div>
   );
 };

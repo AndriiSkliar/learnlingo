@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 
 const {
   VITE_API_KEY,
@@ -24,4 +25,5 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
+export const db = getDatabase();
 export const googleAuthProvider = new GoogleAuthProvider();
