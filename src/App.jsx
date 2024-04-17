@@ -1,16 +1,15 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { lazy } from 'react';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
-import HomePage from 'pages/HomePage';
-import TeachersPage from './pages/TeachersPage';
-import FavoritesPage from './pages/FavoritesPage';
+import { useAuth } from './hooks/use-auth';
 
-// const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-// const ErrorPage = lazy(() => import('./pages/ErrorPage/ErrorPage'));
-// const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
-// const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const TeachersPage = lazy(() => import('./pages/TeachersPage'));
+const FavoritesPage = lazy(() => import('./pages/FavoritesPage'));
 
 function App() {
   const location = useLocation();
+  const { isAuth } = useAuth();
 
   if(location.pathname === "/") {
     location.pathname = "/home";
@@ -21,8 +20,12 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route path="/home" element={<HomePage />} />
         <Route path="/teachers" element={<TeachersPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="*" redirectTo="/home" element={<HomePage />} />
+        {isAuth ? (
+          <Route path="/favorites" element={<FavoritesPage />} />
+        ) : (
+          <Route path="/home" element={ <Navigate redirectTo="/home" />}/>
+        )}
+        <Route path="*" element={<HomePage />} />
       </Route>
     </Routes>
   );
