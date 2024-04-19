@@ -1,8 +1,8 @@
-import { FetchData } from "../components/fetchData"
+import { AAAAAFetchData } from "../components/fetchData"
 
 const TeachersPage = () => {
   return (
-    <div><FetchData/></div>
+    <div><AAAAAFetchData/></div>
   )
 }
 

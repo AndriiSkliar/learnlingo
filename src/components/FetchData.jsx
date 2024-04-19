@@ -4,7 +4,7 @@ import { db } from '../../firebase';
 import { TeachersCard } from './TeachersCard';
 import { nanoid } from 'nanoid';
 
-export const FetchData = () => {
+export const AAAAAFetchData = () => {
   const [data, setData] = useState([]);
   const [currentOffset, setCurrentOffset] = useState(4);
   const [noFetchData, setNoFetchData] = useState(true);
