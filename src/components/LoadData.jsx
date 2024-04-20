@@ -9,14 +9,15 @@ export const LoadData = () => {
   const [currentOffset, setCurrentOffset] = useState(4);
   const [noMoreData, setNoMoreData] = useState(true);
   const dataLength = loadedData.length;
-
+  const limit = 4;
+  
   useEffect(() => {
     loadDataFromFB();
   }, []);
   
   const loadDataFromFB = async () => {
     const baseFetch = query(ref(db), orderByKey(), endBefore(String(currentOffset)));
-    const updFetch = query(ref(db), orderByKey(), startAt(String(currentOffset)), endBefore(String(currentOffset + 4)));
+    const updFetch = query(ref(db), orderByKey(), startAt(String(currentOffset)), endBefore(String(currentOffset + limit)));
     const queryRef = dataLength > 0 ? updFetch : baseFetch;
     
     try {
@@ -26,9 +27,9 @@ export const LoadData = () => {
           newData.push(childSnapshot.val());
         });
         setLoadedData([...loadedData, ...newData]);
-        setCurrentOffset(dataLength + 4);
+        setCurrentOffset(dataLength + limit);
 
-        if (newData.length < 4 && dataLength > 0) setNoMoreData(false);
+        if (newData.length < limit && dataLength > 0) setNoMoreData(false);
       });
     } catch (error) {
       console.error('Error fetching data:', error);
