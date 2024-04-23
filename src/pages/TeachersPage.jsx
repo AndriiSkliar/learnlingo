@@ -2,7 +2,7 @@ import { LoadData } from "../components/LoadData"
 
 const TeachersPage = () => {
   return (
-    <div><LoadData/></div>
+    <main><LoadData/></main>
   )
 }
 

@@ -29,7 +29,7 @@ export const Header = () => {
   },[isAuth])
 
   return (
-    <div>
+    <header>
       <Logo/>
       <nav>
         <NavLink to="/home">
@@ -56,6 +56,6 @@ export const Header = () => {
       </div>
       {showLoginPopup && <PopUp setIsShowModal={setShowLoginPopup}><Login/></PopUp>}
       {showRegisterPopup && <PopUp setIsShowModal={setShowRegisterPopup}><SignUp/></PopUp>}
-    </div>
+    </header>
   );
 };
