@@ -21,16 +21,16 @@ export const TeachersCard = ({ card }) => {
 
   const inFavorites = favoriteCard.some((favorite) => favorite.id === id);
   
-  const handleAddToFavorite = (cardId) => {
+  const handleAddToFavorite = (card) => {
     if (isAuth) { 
-      dispatch(addToFavorites(cardId));
+      dispatch(addToFavorites(card));
     } else {
       showWarningToast("sorry, only for registered users");
      }
   };
 
-  const handleDeleteFromFavorites = (card) => {
-    dispatch(removeFromFavorites(card));
+  const handleDeleteFromFavorites = (cardId) => {
+    dispatch(removeFromFavorites(cardId));
   };
 
   return (
@@ -85,6 +85,7 @@ export const TeachersCard = ({ card }) => {
             avatar_url={avatar_url}
             name={name}
             surname={surname}
+            setShowBookTrialForm={setShowBookTrialForm}
           />
         </PopUp>}
     </div>
