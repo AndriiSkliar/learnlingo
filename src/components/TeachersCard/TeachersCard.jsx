@@ -9,6 +9,10 @@ import { showWarningToast } from '../ErrorMessages/errorMessages';
 import { joinArrayWithComma, joinArrayWithSpace } from '../arrayProcessing'
 import { PopUp } from '../PopUp/PopUp';
 import { BookTrialForm } from '../Forms/BookTrialForm';
+import { ReactComponent as IconHeart } from 'assets/icons/heart.svg'
+import { ReactComponent as IconActiveHeart } from 'assets/icons/active-heart.svg'
+import { ReactComponent as IconBook } from 'assets/icons/book-open.svg'
+import { ReactComponent as IconStar } from 'assets/icons/star.svg'
 import css from './TeachersCard.module.css';
 
 export const TeachersCard = ({ card }) => {
@@ -39,17 +43,28 @@ export const TeachersCard = ({ card }) => {
       <div className={css.teachersImgWrp}>
         <img className={css.teachersImg} src={avatar_url} alt={`${name} ${surname}`} width={96} height={96}/>
       </div>
-      <div>
-        <p>Languages</p>
-        <ul>
-          <li>Lessons online</li>
-          <li>Lessons done: {lessons_done}</li>
-          <li>Rating: {rating}</li>
-          <li>Price / 1 hour: {price_per_hour}</li>
-        </ul>
-          {inFavorites
-          ? <button type="button" onClick={() => {handleDeleteFromFavorites(id)}}>💖</button>
-          : <button type="button" onClick={() => {handleAddToFavorite(card)}}>💙</button>}
+      <div className={css.teachersInfoWrp}>
+        <div className={css.teachersInfo}>
+          <p className={css.teachersLang}>Languages</p>
+          <ul className={css.teachersInfoList}>
+            <li className={css.teachersInfoItem}>
+              <IconBook/>
+              Lessons online
+            </li>
+            <li className={css.teachersInfoItem}>Lessons done: {lessons_done}</li>
+            <li className={css.teachersInfoItem}>
+              <IconStar/>
+              Rating: {rating}
+            </li>
+            <li className={css.teachersInfoItem}>
+              Price / 1 hour:
+              <span className={css.teachersInfoPrice}>{price_per_hour}$</span>
+            </li>
+          </ul>
+            {inFavorites
+            ? <button className={css.teachersFavoriteBtn} type="button" onClick={() => {handleDeleteFromFavorites(id)}}><IconActiveHeart/></button>
+            : <button className={css.teachersFavoriteBtn} type="button" onClick={() => {handleAddToFavorite(card)}}><IconHeart/></button>}
+        </div>
         <h2>{name} {surname}</h2>
         <p>Speaks: {joinArrayWithComma(languages)}</p>
         <p>Lesson Info: {lesson_info}</p>

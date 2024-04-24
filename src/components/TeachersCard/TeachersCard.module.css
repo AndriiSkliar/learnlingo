@@ -34,3 +34,43 @@
 .teachersImg {
   border-radius: 50%;
 }
+
+.teachersInfoWrp {
+  min-width: 967px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.teachersInfo {
+  display: flex;
+  align-items: center;
+}
+
+.teachersLang {
+  margin-right: auto;
+  color: var(--secondary-text-color);
+}
+
+.teachersInfoList {
+  display: flex;
+  margin-right: 64px;
+  gap: 16px;
+}
+
+.teachersInfoItem:not(:last-child) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 16px;
+  border-right: 1px solid rgba(18, 20, 23, 0.2);
+}
+
+.teachersInfoPrice {
+  margin-left: 4px;
+  color: #38cd3e;
+}
+
+.teachersFavoriteBtn {
+  border: 0;
+  background-color: transparent;
+}
