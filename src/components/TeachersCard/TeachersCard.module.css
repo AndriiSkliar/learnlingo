@@ -74,3 +74,64 @@
   border: 0;
   background-color: transparent;
 }
+
+.teachersTitle {
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 32px;
+}
+
+.teachersTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.teachersAccentText {
+  color: var(--secondary-text-color);
+  margin-right: 4px;
+}
+
+.teachersUnderlineText {
+  text-decoration: underline;
+}
+
+.teachersReadMoreBtn {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  text-decoration: underline;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+  margin-bottom: 32px;
+}
+
+.teachersExperience {
+  max-width: 967px;
+  margin-bottom: 32px;
+}
+
+.teachersReview {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.teachersLevelsList {
+  display: flex;
+  gap: 8px;
+}
+
+.teachersLevelsItem {
+  padding: 8px 16px;
+  border-radius: 35px;
+  border: 1px solid rgba(18, 20, 23, 0.2);
+}
+
+.teachersLevelsItem:first-child {
+  background-color: var(--accent-color);
+  border: 0;
+}

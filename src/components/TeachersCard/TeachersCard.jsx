@@ -65,14 +65,25 @@ export const TeachersCard = ({ card }) => {
             ? <button className={css.teachersFavoriteBtn} type="button" onClick={() => {handleDeleteFromFavorites(id)}}><IconActiveHeart/></button>
             : <button className={css.teachersFavoriteBtn} type="button" onClick={() => {handleAddToFavorite(card)}}><IconHeart/></button>}
         </div>
-        <h2>{name} {surname}</h2>
-        <p>Speaks: {joinArrayWithComma(languages)}</p>
-        <p>Lesson Info: {lesson_info}</p>
-        <p>Conditions: {joinArrayWithSpace(conditions)}</p>
-        {!showReadMore && <button type="button" onClick={() => setShowReadMore(true)}>Read more</button>}
+        <h2 className={css.teachersTitle}>{name} {surname}</h2>
+        <div className={css.teachersTextWrapper}>
+          <p>
+            <span className={css.teachersAccentText}>Speaks:</span>
+            <span className={css.teachersUnderlineText}>{joinArrayWithComma(languages)}</span>
+          </p>
+          <p>
+            <span className={css.teachersAccentText}>Lesson Info:</span>
+            {lesson_info}
+          </p>
+          <p>
+            <span className={css.teachersAccentText}>Conditions:</span>
+            {joinArrayWithSpace(conditions)}
+          </p>
+        </div>
+        {!showReadMore && <button className={css.teachersReadMoreBtn} type="button" onClick={() => setShowReadMore(true)}>Read more</button>}
         {showReadMore && <div>
-          <p>{experience}</p>
-          <ul>
+          <p className={css.teachersExperience}>{experience}</p>
+          <ul className={css.teachersReview}>
             {reviews.map(({comment, reviewer_name, reviewer_rating}) => (
               <li key={nanoid()}>
                 <img src={faker.image.avatar()} alt={{reviewer_name}} width={44} height={44}/>
@@ -82,16 +93,16 @@ export const TeachersCard = ({ card }) => {
               </li>
             ))}
           </ul>
-          <ul>
+          <ul className={css.teachersLevelsList}>
             {levels.map((level) => (
               <li key={nanoid()}>{level}</li>
             ))}
           </ul>
           <button type='button' onClick={() => setShowBookTrialForm(true)}>Book trial lesson</button>
         </div>}
-        {!showReadMore && <ul>
+        {!showReadMore && <ul className={css.teachersLevelsList}>
           {levels.map((level) => (
-            <li key={nanoid()}>{level}</li>
+            <li className={css.teachersLevelsItem} key={nanoid()}>#{level}</li>
           ))}
         </ul>}
       </div>
