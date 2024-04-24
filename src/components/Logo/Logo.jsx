@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
+import { ReactComponent as IconLogo } from 'assets/icons/ukraine.svg'
+import css from './Logo.module.css';
 
 const Logo = () => {
   return (
     <>
-      <Link to="/home">
+      <Link to="/home" className={css.logo}>
+        <IconLogo/>
         <p>LearnLingo</p>
       </Link>
     </>

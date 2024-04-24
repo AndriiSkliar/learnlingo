@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectFavorites } from '../redux/selectors/card.selectors';
-import { TeachersCard } from '../components/TeachersCard';
+import { selectFavorites } from '../../redux/selectors/card.selectors';
+import { TeachersCard } from '../../components/TeachersCard/TeachersCard';
 import { nanoid } from 'nanoid';
 
 const FavoritesPage = () => {
@@ -18,8 +18,8 @@ const FavoritesPage = () => {
         </ul>
       ) : (
         <p>
-          Oops! It looks like you haven't added any teachers to your favorites
-          yet, so we can't display what isn't there. Add some favorites and
+          Oops! It looks like you haven&apos;t added any teachers to your favorites
+          yet, so we can&apos;t display what isn&apos;t there. Add some favorites and
           come <Link to="/teachers">back!</Link>
         </p>
       )}

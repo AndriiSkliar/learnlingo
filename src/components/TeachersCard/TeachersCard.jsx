@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { faker } from '@faker-js/faker';
-import { useAuth } from '../hooks/use-auth';
-import { selectFavorites } from '../redux/selectors/card.selectors';
-import { addToFavorites, removeFromFavorites } from '../redux/card/card.reducer';
-import { showWarningToast } from './ErrorMessages/errorMessages';
-import { joinArrayWithComma, joinArrayWithSpace } from './arrayProcessing'
-import { PopUp } from './PopUp/PopUp';
-import { BookTrialForm } from './Forms/BookTrialForm';
+import { useAuth } from '../../hooks/use-auth';
+import { selectFavorites } from '../../redux/selectors/card.selectors';
+import { addToFavorites, removeFromFavorites } from '../../redux/card/card.reducer';
+import { showWarningToast } from '../ErrorMessages/errorMessages';
+import { joinArrayWithComma, joinArrayWithSpace } from '../arrayProcessing'
+import { PopUp } from '../PopUp/PopUp';
+import { BookTrialForm } from '../Forms/BookTrialForm';
+import css from './TeachersCard.module.css';
 
 export const TeachersCard = ({ card }) => {
   const { avatar_url, conditions, experience, languages, id, lesson_info, lessons_done, levels, name, price_per_hour, rating, reviews, surname } = card;
@@ -34,9 +35,9 @@ export const TeachersCard = ({ card }) => {
   };
 
   return (
-    <div>
-      <div>
-        <img src={avatar_url} alt={`${name} ${surname}`} width={96} height={96}/>
+    <>
+      <div className={css.teachersImgWrp}>
+        <img className={css.teachersImg} src={avatar_url} alt={`${name} ${surname}`} width={96} height={96}/>
       </div>
       <div>
         <p>Languages</p>
@@ -88,6 +89,6 @@ export const TeachersCard = ({ card }) => {
             setShowBookTrialForm={setShowBookTrialForm}
           />
         </PopUp>}
-    </div>
+    </>
   )
 }

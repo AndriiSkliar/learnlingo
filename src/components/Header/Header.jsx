@@ -5,9 +5,12 @@ import { getAuth, signOut } from "firebase/auth";
 import { useAuth } from '../../hooks/use-auth';
 import { removeUser } from '../../redux/auth/auth.reducer';
 import { PopUp } from '../PopUp/PopUp';
-import { SignUp } from "../SignUp";
-import { Login } from "../Login";
+import { SignUp } from "../SignUp/SignUp";
+import { Login } from "../Login/Login";
 import Logo from '../Logo/Logo';
+import { ReactComponent as IconLogin } from 'assets/icons/log-in.svg'
+import { ReactComponent as IconLogout } from 'assets/icons/log-out.svg'
+import css from './Header.module.css';
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -29,29 +32,41 @@ export const Header = () => {
   },[isAuth])
 
   return (
-    <header>
+    <header className={css.header}>
       <Logo/>
-      <nav>
-        <NavLink to="/home">
+      <nav className={css.headerNav}>
+        <NavLink
+          to="/home"
+          className={({isActive}) => `${css.headerLink} ${isActive ? css.active : ''}`}>
           Home
         </NavLink>
-        <NavLink to="/teachers">
+        <NavLink
+          to="/teachers"
+          className={({isActive}) => `${css.headerLink} ${isActive ? css.active : ''}`}>
           Teachers
         </NavLink>
         {isAuth ?
-          <NavLink to="/favorites">
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) => `${css.headerLink} ${isActive ? css.active : ''}`}>
             Favorites
           </NavLink> : null}
       </nav>
-      <div>
+      <div className={css.headerSignup}>
         {isAuth
           ? <>
-            <span>{name}</span>
-            <button onClick={handleClick}>Log out</button>
+              <button className={css.headerBtn} onClick={handleClick}>
+                <IconLogout className={css.headerBtnIcon} />
+                Log out
+              </button>
+              <p className={css.headerBtnReg}>{name}</p>
             </>
           : <>
-            <button type='button' onClick={() => setShowLoginPopup(true)}>Log in</button>
-            <button type='button' onClick={() => setShowRegisterPopup(true)}>Registration</button>
+            <button className={css.headerBtn} type='button' onClick={() => setShowLoginPopup(true)}>
+              <IconLogin className={css.headerBtnIcon}/>
+              Log in
+            </button>
+            <button className={`${css.headerBtn} ${css.headerBtnReg}`} type='button' onClick={() => setShowRegisterPopup(true)}>Registration</button>
           </>}
       </div>
       {showLoginPopup && <PopUp setIsShowModal={setShowLoginPopup}><Login/></PopUp>}

@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px 64px;
+  width: 100%;
+}
+
+.headerNav {
+  flex-basis: 33.3333%;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.headerSignup {
+  flex-basis: 33.3333%;
+  display: flex;
+  gap: 16px;
+  justify-content: end;
+}
+
+.headerLink {
+  line-height: 1.25;
+}
+
+.headerLink.active {
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.headerBtn {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.headerBtnIcon {
+  stroke: var(--accent-color);
+  fill: transparent;
+  margin-right: 8px;
+}
+
+.headerBtnReg {
+  padding: 14px 39px;
+  border-radius: 12px;
+  background-color: var(--primary-text-color);
+  color: var(--background-color);
+}

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ref, query, onValue, orderByKey, startAt, endBefore } from 'firebase/database';
-import { db } from '../../firebase';
-import { TeachersCard } from './TeachersCard';
+import { db } from '../../../firebase';
+import { TeachersCard } from '../TeachersCard/TeachersCard';
 import { nanoid } from 'nanoid';
+import css from './LoadData.module.css';
 
 export const LoadData = () => {
   const [loadedData, setLoadedData] = useState([]);
@@ -37,14 +38,16 @@ export const LoadData = () => {
   };
 
   return (
-    <div>
+    <>
       {dataLength > 0 &&
-        <ul>
+        <ul className={css.cardsList}>
           {loadedData.map((card) => (
-            <TeachersCard key={nanoid()} card={card}
-          />))}
+            <li className={css.cardsItem} key={nanoid()}>
+              <TeachersCard card={card}/>
+            </li>
+          ))}
         </ul>}
       {noMoreData && <button onClick={loadDataFromFB}>Load more</button>}
-    </div>
+    </>
   );
 };

@@ -3,9 +3,9 @@ import { lazy } from 'react';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { useAuth } from './hooks/use-auth';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
-const TeachersPage = lazy(() => import('./pages/TeachersPage'));
-const FavoritesPage = lazy(() => import('./pages/FavoritesPage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const TeachersPage = lazy(() => import('./pages/TeachersPage/TeachersPage'));
+const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
 
 function App() {
   const location = useLocation();

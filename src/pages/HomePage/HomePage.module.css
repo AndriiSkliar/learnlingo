@@ -1,0 +1,72 @@
+.heroWrp {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.heroDesc {
+  border-radius: 30px;
+  background-color: #f8f8f8;
+  padding: 98px 102px 0 64px;
+}
+
+.heroTitle {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.16667;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.heroSmall {
+  font-style: italic;
+  font-weight: 400;
+  background-color: var(--secondary-color);
+}
+
+.heroText {
+  max-width: 471px;
+  line-height: 1.375;
+  letter-spacing: -0.02em;
+  margin-bottom: 64px;
+}
+
+.heroLink {
+  letter-spacing: -0.02em;
+  margin-bottom: 64px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.55556;
+  border-radius: 12px;
+  background-color: var(--accent-color);
+  padding: 16px 88px;
+}
+
+.heroList {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 122px;
+  border-radius: 30px;
+  border: 1.5px dashed var(--accent-color);
+}
+
+.heroItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.heroTotal {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.14286;
+  letter-spacing: -0.02em;
+}
+
+.heroBenefits {
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
+  max-width: 80px;
+}

@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { UniversalForm } from "./Forms/Form";
-import { setUser } from '../redux/auth/auth.reducer';
-
+import { UniversalForm } from "../Forms/Form";
+import { setUser } from '../../redux/auth/auth.reducer';
 
 export const Login = () => {
     const dispatch = useDispatch();
