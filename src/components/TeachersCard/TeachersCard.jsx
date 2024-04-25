@@ -86,19 +86,23 @@ export const TeachersCard = ({ card }) => {
           <ul className={css.teachersReview}>
             {reviews.map(({comment, reviewer_name, reviewer_rating}) => (
               <li key={nanoid()}>
-                <img src={faker.image.avatar()} alt={{reviewer_name}} width={44} height={44}/>
-                <h3>{reviewer_name}</h3>
-                <p>{reviewer_rating}</p>
+                <div className={css.flexContainer}>
+                  <img className={css.teachersReviewImg} src={faker.image.avatar()} alt={{reviewer_name}} width={44} height={44}/>
+                  <div className={css.flexReviewContainer}>
+                    <h3 className={css.teachersReviewTitle}>{reviewer_name}</h3>
+                    <p className={css.teachersReviewRating}><IconStar className={css.teachersReviewStar}/> {reviewer_rating}.0</p>
+                  </div>
+                </div>
                 <p>{comment}</p>
               </li>
             ))}
           </ul>
           <ul className={css.teachersLevelsList}>
             {levels.map((level) => (
-              <li key={nanoid()}>{level}</li>
+              <li className={css.teachersLevelsItem} key={nanoid()}>#{level}</li>
             ))}
           </ul>
-          <button type='button' onClick={() => setShowBookTrialForm(true)}>Book trial lesson</button>
+          <button className={css.teachersTrialBtn} type='button' onClick={() => setShowBookTrialForm(true)}>Book trial lesson</button>
         </div>}
         {!showReadMore && <ul className={css.teachersLevelsList}>
           {levels.map((level) => (
