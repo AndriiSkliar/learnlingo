@@ -55,7 +55,7 @@ const HomePage = () => {
               srcSet={`${girlPng} 1x, ${girlPng2x} 2x`}
             />
             <img
-              className="hero-img"
+              className={css.heroImg}
               srcSet={girlPng}
               alt="Girl with notebook"
             />
