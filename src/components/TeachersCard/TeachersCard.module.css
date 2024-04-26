@@ -36,7 +36,7 @@
 }
 
 .teachersInfoWrp {
-  min-width: 967px;
+  max-width: 967px;
   font-weight: 500;
   line-height: 1.5;
 }
