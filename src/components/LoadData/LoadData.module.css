@@ -10,9 +10,9 @@
 }
 
 .cardsItem {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: start;
   max-width: 1184px;
   width: 100%;
@@ -31,6 +31,8 @@
   font-size: 18px;
   line-height: 1.55556;
   color: var(--primary-text-color);
+  display: block;
+  margin: auto;
 }
 
 .cardsLoadMoreBtn:hover,

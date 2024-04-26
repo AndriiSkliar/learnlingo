@@ -22,9 +22,9 @@
 }
 
 .cardsItem {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: start;
   max-width: 1184px;
   width: 100%;

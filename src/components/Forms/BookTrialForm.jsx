@@ -7,7 +7,7 @@ export const BookTrialForm = ({avatar_url, name, surname, setShowBookTrialForm})
   const userInputs = [
     { name: 'name', type: 'text', label: 'Full Name' },
     { name: 'email', type: 'email', label: 'Email' },
-    { name: 'phone', type: 'number', label: 'Phone number' },
+    { name: 'phone', type: 'tel', label: 'Phone number' },
   ];
 
   const userRadioInputs = [
@@ -74,7 +74,7 @@ export const BookTrialForm = ({avatar_url, name, surname, setShowBookTrialForm})
                     required
                   />
                   <label className={css.label} htmlFor={name}>{label}</label>
-                  <ErrorMessage name={name} component="div"  className={css.errorMessage} />
+                  <ErrorMessage name={name} component="div" className={css.errorMessage} />
                 </div>
               ))}
             </div>

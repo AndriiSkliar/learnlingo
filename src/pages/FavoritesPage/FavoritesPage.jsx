@@ -10,7 +10,7 @@ const FavoritesPage = () => {
 
   return (
     <main className={css.main}>
-      <h2 className={css.title}>Favorite</h2>
+      <h2 className={css.title}>Favorites</h2>
       {favoriteCard.length > 0 ? (
         <ul className={css.cardsList}>
           {favoriteCard.map((card) => (
