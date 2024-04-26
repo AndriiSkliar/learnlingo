@@ -43,25 +43,40 @@
 
 .teachersInfo {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 32px;
+  row-gap: 15px;
 }
 
 .teachersLang {
-  margin-right: auto;
+  margin-bottom: 8px;
   color: var(--secondary-text-color);
+}
+
+.teachersInfoWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  max-width: 697px;
 }
 
 .teachersInfoList {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
   margin-right: 64px;
-  gap: 16px;
+  column-gap: 16px;
 }
 
 .teachersInfoItem:not(:last-child) {
   display: flex;
   align-items: center;
-  gap: 8px;
   padding-right: 16px;
+  gap: 8px;
   border-right: 1px solid rgba(18, 20, 23, 0.2);
 }
 
@@ -71,6 +86,7 @@
 }
 
 .teachersFavoriteBtn {
+  padding: 0;
   border: 0;
   background-color: transparent;
 }
@@ -83,7 +99,6 @@
 .teachersTitle {
   font-weight: 500;
   line-height: 1;
-  margin-bottom: 32px;
 }
 
 .teachersTextWrapper {
@@ -162,6 +177,9 @@
 
 .teachersLevelsList {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
   gap: 8px;
 }
 

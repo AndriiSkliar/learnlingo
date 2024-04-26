@@ -1,8 +1,11 @@
 .header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 20px 64px;
+  justify-content: space-around;
+  padding: 20px 0;
   width: 100%;
+  row-gap: 15px;
 }
 
 .headerNav {
@@ -40,6 +43,7 @@
   align-items: center;
   font-weight: 700;
   line-height: 1.25;
+  min-width: 93px;
 }
 
 .headerBtn:hover,
@@ -58,4 +62,8 @@
   border-radius: 12px;
   background-color: var(--primary-text-color);
   color: var(--background-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  min-width: 175px;
 }

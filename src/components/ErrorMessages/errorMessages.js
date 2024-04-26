@@ -10,3 +10,7 @@ export const showWarningToast = (message) => {
 export const showSuccessToast = (message) => {
   toast.success(message, toastOptions);
 };
+
+export const showErrorToast = (message) => {
+  toast.error(message, toastOptions);
+};

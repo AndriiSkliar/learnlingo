@@ -45,27 +45,31 @@ export const TeachersCard = ({ card }) => {
       </div>
       <div className={css.teachersInfoWrp}>
         <div className={css.teachersInfo}>
-          <p className={css.teachersLang}>Languages</p>
-          <ul className={css.teachersInfoList}>
-            <li className={css.teachersInfoItem}>
-              <IconBook/>
-              Lessons online
-            </li>
-            <li className={css.teachersInfoItem}>Lessons done: {lessons_done}</li>
-            <li className={css.teachersInfoItem}>
-              <IconStar/>
-              Rating: {rating}
-            </li>
-            <li className={css.teachersInfoItem}>
-              Price / 1 hour:
-              <span className={css.teachersInfoPrice}>{price_per_hour}$</span>
-            </li>
-          </ul>
+          <div>
+            <p className={css.teachersLang}>Languages</p>
+            <h2 className={css.teachersTitle}>{name} {surname}</h2>
+          </div>
+          <div className={css.teachersInfoWrapper}>
+            <ul className={css.teachersInfoList}>
+              <li className={css.teachersInfoItem}>
+                <IconBook/>
+                Lessons online
+              </li>
+              <li className={css.teachersInfoItem}>Lessons done: {lessons_done}</li>
+              <li className={css.teachersInfoItem}>
+                <IconStar/>
+                Rating: {rating}
+              </li>
+              <li className={css.teachersInfoItem}>
+                Price / 1 hour:
+                <span className={css.teachersInfoPrice}>{price_per_hour}$</span>
+              </li>
+            </ul>
             {inFavorites
             ? <button className={css.teachersFavoriteBtn} type="button" onClick={() => {handleDeleteFromFavorites(id)}}><IconActiveHeart/></button>
             : <button className={css.teachersFavoriteBtn} type="button" onClick={() => {handleAddToFavorite(card)}}><IconHeart/></button>}
+          </div>
         </div>
-        <h2 className={css.teachersTitle}>{name} {surname}</h2>
         <div className={css.teachersTextWrapper}>
           <p>
             <span className={css.teachersAccentText}>Speaks:</span>

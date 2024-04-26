@@ -1,14 +1,36 @@
-import { nanoid } from "nanoid";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { app } from "../../../firebase";
+import { setUser } from '../../redux/auth/auth.reducer';
+import { nanoid } from "nanoid";
 import css from './HomePage.module.css';
 
+
 const HomePage = () => {
+  const dispatch = useDispatch();
+  const auth = getAuth(app);
+
   const tutorDetails = [
     { value: '32,000 +', details: 'Experienced tutors' },
     { value: '300,000 +', details: '5-star tutor reviews' },
     { value: '120 +', details: 'Subjects taught' },
     { value: '200 +', details: 'Tutor nationalities' },
   ];
+
+  useEffect(() => { 
+    auth.onAuthStateChanged((maybeUser) => { 
+      if (maybeUser !== null) { 
+        dispatch(setUser({
+          name: maybeUser.displayName,
+          email: maybeUser.email,
+          id: maybeUser.uid,
+          token: maybeUser.accessToken,
+        }));
+      }
+    })
+  }, [auth])
   
   return (
     <main>
@@ -20,6 +42,7 @@ const HomePage = () => {
         </div>
         <div>
           <img
+            className={css.heroImg}
             srcSet="/hero.webp,
                     /hero@2x.webp 2x,
                     /hero.png 1x,
@@ -27,7 +50,6 @@ const HomePage = () => {
             src="/hero.png"
             alt="girl with notebook"
             width={568}
-            height={530}
           />
         </div>
       </div>

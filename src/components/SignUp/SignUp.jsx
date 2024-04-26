@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { setUser } from '../../redux/auth/auth.reducer';
 import { UniversalForm } from "../Forms/Form";
+import { showErrorToast } from '../ErrorMessages/errorMessages';
 
 export const SignUp = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export const SignUp = () => {
                     token: user.accessToken,
                 }));
         } catch (error) {
-            console.error('Error registering user:', error);
+            showErrorToast(error.message);
         }
     };
 

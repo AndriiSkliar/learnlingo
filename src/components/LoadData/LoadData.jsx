@@ -3,6 +3,7 @@ import { ref, query, onValue, orderByKey, startAt, endBefore } from 'firebase/da
 import { db } from '../../../firebase';
 import { TeachersCard } from '../TeachersCard/TeachersCard';
 import { nanoid } from 'nanoid';
+import { showErrorToast } from '../ErrorMessages/errorMessages';
 import css from './LoadData.module.css';
 
 export const LoadData = () => {
@@ -33,7 +34,7 @@ export const LoadData = () => {
         if (newData.length < limit && dataLength > 0) setNoMoreData(false);
       });
     } catch (error) {
-      console.error('Error fetching data:', error);
+      showErrorToast(error.message);
     }
   };
 
@@ -47,7 +48,7 @@ export const LoadData = () => {
             </li>
           ))}
         </ul>}
-      {noMoreData && <button className={css.cardsLoadMoreBtn} onClick={loadDataFromFB}>Load more</button>}
+      {noMoreData && dataLength > 0 && <button className={css.cardsLoadMoreBtn} onClick={loadDataFromFB}>Load more</button>}
     </>
   );
 };
