@@ -5,10 +5,10 @@ import { getAuth } from "firebase/auth";
 import { app } from "../../../firebase";
 import { setUser } from '../../redux/auth/auth.reducer';
 import { nanoid } from "nanoid";
-import girl from '../../assets/img/hero.png';
-import girlRet from '../../assets/img/hero.webp';
-import girl2x from '../../assets/img/hero@2x.png';
-import girlRet2x from '../../assets/img/hero@2x.webp';
+import girlPng from '../../assets/img/hero.png';
+import girlWebp from '../../assets/img/hero.webp';
+import girlPng2x from '../../assets/img/hero@2x.png';
+import girlWebp2x from '../../assets/img/hero@2x.webp';
 import css from './HomePage.module.css';
 
 
@@ -45,7 +45,7 @@ const HomePage = () => {
           <Link className={css.heroLink} to="/teachers">Get started</Link>
         </div>
         <div>
-          <img srcSet={`${girlRet} 1x, ${girlRet2x} 2x, ${girl} 1x, ${girl2x} 2x`} src={girl} alt="girl with notebook" />
+          <img srcSet={`${girlWebp} 1x, ${girlWebp2x} 2x, ${girlPng} 1x, ${girlPng2x} 2x`} src={girlPng} alt="girl with notebook" />
         </div>
       </div>
       <ul className={css.heroList}>
