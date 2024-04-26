@@ -47,7 +47,7 @@ export const LoadData = () => {
             </li>
           ))}
         </ul>}
-      {noMoreData && <button onClick={loadDataFromFB}>Load more</button>}
+      {noMoreData && <button className={css.cardsLoadMoreBtn} onClick={loadDataFromFB}>Load more</button>}
     </>
   );
 };

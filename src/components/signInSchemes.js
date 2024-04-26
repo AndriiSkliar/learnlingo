@@ -13,7 +13,7 @@ const mainSchema = Yup.object().shape({
     )
     .email('Invalid email format, example@mail.com'),
   password: Yup.string()
-    .required('Password is required. Example:Password123')
+    .required('Password is required. Example: Password123')
     .min(6, 'Password must be at least 6 characters long')
     .matches(/[a-zA-Z]/, 'Password must contain at least one letter')
     .matches(/[0-9]/, 'Password must contain at least one number'),

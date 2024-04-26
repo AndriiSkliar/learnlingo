@@ -8,3 +8,8 @@
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
+
+.logoText:hover,
+.logoText:focus {
+  color: var(--accent-color);
+}

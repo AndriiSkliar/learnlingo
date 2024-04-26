@@ -1,6 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
 import { loginValidationSchema, registerValidationSchema } from '../signInSchemes';
+import { ReactComponent as IconShowPass } from 'assets/icons/eye-off.svg'
+import { ReactComponent as IconHidePass } from 'assets/icons/eye.svg'
+import css from './Forms.module.css';
 
 export const UniversalForm = props => {
   const { title, text, inputs, handleUserSubmit, button } = props;
@@ -16,8 +19,8 @@ export const UniversalForm = props => {
 
   return (
     <div>
-      <h2>{title}</h2>
-      <p>{text}</p>
+      <h2 className={css.title}>{title}</h2>
+      <p className={css.textDesc}>{text}</p>
       <Formik
         initialValues={{
           name: '', 
@@ -29,19 +32,35 @@ export const UniversalForm = props => {
       >
         {() => (
           <Form>
-            {inputs.map(({name, label}) => (
-              <div key={name}>
+            <div className={css.container}>
+               {inputs.map(({name, label}) => (
+              <div className={css.inputsContainer} key={name}>
                 {name === 'password'
-                  ? <div>
-                      <Field type={showPassword ? 'text' : name} id={name} name={name} autoComplete="on"/>
-                      <button type="button" onClick={handleTogglePassword}>eye</button>
-                    </div>
-                  : <Field type={name} id={name} name={name} />}
-                <label htmlFor={name}>{label}</label>
-                <ErrorMessage name={name} component="div" className="error-message" />
+                  ? <>
+                      <button className={css.signupToggleBtn} type="button" onClick={handleTogglePassword}>{showPassword ? <IconHidePass/> : <IconShowPass/>}</button>
+                      <Field
+                        className={css.input}
+                        type={showPassword ? 'text' : name}
+                        id={name}
+                        name={name}
+                        autoComplete="on"
+                        placeholder={label}
+                      />
+                    </>
+                  : <Field
+                      className={css.input}
+                      type={name}
+                      id={name}
+                      name={name}
+                      placeholder={label}
+                      autoComplete="on"
+                    />}
+                <label className={css.label} htmlFor={name}>{label}</label>
+                <ErrorMessage name={name} component="div" className={css.errorMessage} />
               </div>
             ))}
-            <button type="submit">{button}</button>
+           </div>
+            <button className={css.submitBtn}  type="submit">{button}</button>
           </Form>
         )}
       </Formik>

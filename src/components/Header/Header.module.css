@@ -23,6 +23,11 @@
   line-height: 1.25;
 }
 
+.headerLink:hover,
+.headerLink:focus {
+  color: var(--accent-color);
+}
+
 .headerLink.active {
   border-bottom: 2px solid var(--accent-color);
 }
@@ -35,6 +40,11 @@
   align-items: center;
   font-weight: 700;
   line-height: 1.25;
+}
+
+.headerBtn:hover,
+.headerBtn:focus {
+  color: var(--accent-color);
 }
 
 .headerBtnIcon {

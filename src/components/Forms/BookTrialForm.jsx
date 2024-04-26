@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { entryValidationSchema } from '../signInSchemes';
 import { showSuccessToast } from '../ErrorMessages/errorMessages';
+import css from './Forms.module.css';
 
 export const BookTrialForm = ({avatar_url, name, surname, setShowBookTrialForm}) => {
   const userInputs = [
@@ -24,14 +25,16 @@ export const BookTrialForm = ({avatar_url, name, surname, setShowBookTrialForm})
 
   return (
     <div>
-      <h2>Book trial lesson</h2>
-      <p>Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs.</p>
-      <div>
-        <img src={avatar_url} alt={`${name} ${surname}`} width={44} height={44} />
-        <p>Your teacher</p>
-        <h3>{name} {surname}</h3>
+      <h2 className={css.title}>Book trial lesson</h2>
+      <p className={css.textDesc}>Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs.</p>
+      <div className={css.teacherWrapper}>
+        <img className={css.teacherImg} src={avatar_url} alt={`${name} ${surname}`} width={44} height={44} />
+        <div className={css.teacherTextWrapper}>
+          <p className={css.teacherText}>Your teacher</p>
+          <h3 className={css.teacherTitle}>{name} {surname}</h3>
+        </div>
       </div>
-      <p>What is your main reason for learning English?</p>
+      <p className={css.reasonText}>What is your main reason for learning English?</p>
       <Formik
         initialValues={{
           name: '', 
@@ -44,22 +47,38 @@ export const BookTrialForm = ({avatar_url, name, surname, setShowBookTrialForm})
       >
         {() => (
           <Form>
-            <div>
+            <ul className={css.radioList}>
               {userRadioInputs.map(({value, text}) => (
-                <label key={value}>
-                  <Field type='radio' name='reason' value={value} />
-                  {text}
-                </label>
+                <li className={css.radioItem} key={value}>
+                  <Field
+                    className={css.radioInput}
+                    type='radio'
+                    name='reason'
+                    value={value}
+                    id={value}
+                  />
+                  <label className={css.radioLabel} htmlFor={value}>{text}</label>
+                </li>
+              ))}
+            </ul>
+            <div className={css.container}>
+              {userInputs.map(({name, label, type}) => (
+                <div className={css.inputsContainer} key={name}>
+                  <Field
+                    className={css.input}
+                    type={type}
+                    id={name}
+                    name={name}
+                    autoComplete="on"
+                    placeholder={label}
+                    required
+                  />
+                  <label className={css.label} htmlFor={name}>{label}</label>
+                  <ErrorMessage name={name} component="div"  className={css.errorMessage} />
+                </div>
               ))}
             </div>
-              {userInputs.map(({name, label, type}) => (
-              <div key={name}>
-                <Field type={type} id={name} name={name} autoComplete="on" required/>
-                <label htmlFor={name}>{label}</label>
-                <ErrorMessage name={name} component="div" className="error-message" />
-              </div>
-            ))}
-            <button type="submit">Book</button>
+            <button className={css.submitBtn} type="submit">Book</button>
           </Form>
         )}
       </Formik>

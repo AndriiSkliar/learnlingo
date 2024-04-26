@@ -19,7 +19,16 @@ const HomePage = () => {
           <Link className={css.heroLink} to="/teachers">Get started</Link>
         </div>
         <div>
-          <img src="/hero.jpg" alt="girl with notebook" width={568} height={530}/>
+          <img
+            srcSet="/hero.webp,
+                    /hero@2x.webp 2x,
+                    /hero.png 1x,
+                    /hero@2x.png 2x"
+            src="/hero.png"
+            alt="girl with notebook"
+            width={568}
+            height={530}
+          />
         </div>
       </div>
       <ul className={css.heroList}>

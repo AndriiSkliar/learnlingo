@@ -7,7 +7,7 @@ const Logo = () => {
     <>
       <Link to="/home" className={css.logo}>
         <IconLogo/>
-        <p>LearnLingo</p>
+        <p className={css.logoText}>LearnLingo</p>
       </Link>
     </>
   );

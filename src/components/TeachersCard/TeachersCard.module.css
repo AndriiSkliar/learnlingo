@@ -75,6 +75,11 @@
   background-color: transparent;
 }
 
+.teachersFavoriteBtn:hover,
+.teachersFavoriteBtn:focus {
+  transform: scale(1.2);
+}
+
 .teachersTitle {
   font-weight: 500;
   line-height: 1;
@@ -106,6 +111,11 @@
   line-height: 1.5;
   color: var(--primary-text-color);
   margin-bottom: 32px;
+}
+
+.teachersReadMoreBtn:hover,
+.teachersReadMoreBtn:focus {
+  color: var(--accent-color);
 }
 
 .teachersExperience {
@@ -180,4 +190,9 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 1.55556;
+}
+
+.teachersTrialBtn:hover,
+.teachersTrialBtn:focus {
+  color: var(--background-color);
 }
