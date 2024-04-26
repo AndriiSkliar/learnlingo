@@ -1,6 +1,6 @@
 # LearnLingo - professional language training
 
-(https://andriiskliar.github.io/name/)
+(https://andriiskliar.github.io/learnlingo/)
 
 This project was created using [Create React App].
 
